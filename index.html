@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #333;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        #btn-yes {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        #btn-yes:hover {
+            background-color: #27ae60;
+            transform: scale(1.05);
+        }
+
+        #btn-no {
+            background-color: #e74c3c;
+            color: white;
+            position: relative;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .message-box {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .text-msg {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        .poem-box {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 1.6;
+            color: #444;
+            max-height: 350px;
+            overflow-y: auto;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.03);
+        }
+
+        .poem-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .poem-author {
+            margin-top: 20px;
+            font-weight: bold;
+            font-style: italic;
+            color: #7f8c8d;
+        }
+
+        .btn-next {
+            background-color: #3498db;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .btn-next:hover {
+            background-color: #2980b9;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="main-container">
+        <!-- Paso 1: La Pregunta -->
+        <div id="step-1">
+            <h1>¿Te gusto aun?</h1>
+            <div class="buttons-container">
+                <button id="btn-yes">Sí</button>
+                <button id="btn-no">No</button>
+            </div>
+        </div>
+
+        <!-- Paso 2: Primer Mensaje y Poema -->
+        <div id="step-2" class="hidden message-box">
+            <p class="text-msg">Okey como te quiero te termine de hacer esto:</p>
+            <div class="poem-box">
+                <div class="poem-title">NIÑA HERMOSA</div>
+                La luna es blanca<br>
+                Y existen flores amarillas<br>
+                Pero lo que no se repite<br>
+                Es tu preciosa sonrisa<br><br>
+
+                El mar es azul<br>
+                Las ballenas tambien<br>
+                Pero lo que no es igual<br>
+                Es tu dulce querer<br><br>
+
+                La tierra es café<br>
+                El sol es amarillo<br>
+                Pero lo que no es de fe<br>
+                Es tu dulce cariño<br><br>
+
+                El pasto es verde<br>
+                Y los cotorros igualmente<br>
+                Pero lo que no es verde<br>
+                Es mi futuro al verte<br><br>
+
+                Las nubes son grises<br>
+                El humo de igual forma<br>
+                Pero algo que me encanta<br>
+                Es tu dulce aroma<br><br>
+
+                La pasta es blanda<br>
+                El agua corre por el grifo<br>
+                Pero lo que es mi favorito<br>
+                Es hablar contigo
+                <div class="poem-author">Guillermo Emiliano Rangel Magaña</div>
+            </div>
+            <button class="btn-next" id="btn-goto-step-3">Siguiente</button>
+        </div>
+
+        <!-- Paso 3: Segundo Mensaje y Poema -->
+        <div id="step-3" class="hidden message-box">
+            <p class="text-msg">Eso no es todo, también te hice este otro pensando en estos días sin ti:</p>
+            <div class="poem-box">
+                <div class="poem-title">EL TIEMPO</div>
+                Hoy te escribo esto<br>
+                Pensando y pensado<br>
+                Esperando tu respuesta<br>
+                Para estar a tu lado<br><br>
+
+                El tiempo pasa lento<br>
+                Cuando no te veo<br>
+                Ya que sin ti<br>
+                Para mi esta feo<br><br>
+
+                Hay algo que me preocupa<br>
+                Y lo diría pero me mortifica<br>
+                Es que me preocupa<br>
+                No volver a ver tu hermosa carita<br><br>
+
+                Tambien hay otras cosas<br>
+                No solo lo físico<br>
+                Tambien es importante<br>
+                Hablar un rato contigo<br><br>
+
+                Día tras dia me pregunto<br>
+                Que es lo que pasa<br>
+                Viendo a futuro<br>
+                Sin saber lo que te sucede<br><br>
+
+                Aquí termina este camino<br>
+                Pero no es lo menos importante<br>
+                Asi que me despido diciendo<br>
+                Espero volver a reencontrarme
+                <div class="poem-author">Guillermo Emiliano Rangel Magaña</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnNo = document.getElementById('btn-no');
+        const btnYes = document.getElementById('btn-yes');
+        const step1 = document.getElementById('step-1');
+        const step2 = document.getElementById('step-2');
+        const step3 = document.getElementById('step-3');
+        const btnGotoStep3 = document.getElementById('btn-goto-step-3');
+
+        // Función para mover el botón "No" por toda la pantalla de forma aleatoria
+        function moveButton() {
+            const x = Math.random() * (window.innerWidth - btnNo.offsetWidth - 80);
+            const y = Math.random() * (window.innerHeight - btnNo.offsetHeight - 80);
+            
+            btnNo.style.position = 'fixed';
+            btnNo.style.left = `${Math.max(20, x)}px`;
+            btnNo.style.top = `${Math.max(20, y)}px`;
+        }
+
+        // Eventos para esquivar el cursor o el toque en celulares
+        btnNo.addEventListener('mouseover', moveButton);
+        btnNo.addEventListener('click', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+
+        // Al hacer clic en "Sí"
+        btnYes.addEventListener('click', () => {
+            step1.classList.add('hidden');
+            step2.classList.remove('hidden');
+        });
+
+        // Pasar al siguiente bloque (segundo poema)
+        btnGotoStep3.addEventListener('click', () => {
+            step2.classList.add('hidden');
+            step3.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
